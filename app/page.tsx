@@ -77,6 +77,27 @@ Phone: ${phone}`;
           width="40"
           alt="whatsapp"
         />
+
+
+        <a
+  href="https://wa.me/919501941186"
+  target="_blank"
+  style={{
+    position: "fixed",
+    bottom: "20px",
+    right: "20px",
+    backgroundColor: "#25D366",
+    padding: "12px",
+    borderRadius: "50%",
+    zIndex: 9999
+  }}
+>
+  <img
+    src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+    width="40"
+    alt="whatsapp"
+  />
+</a>
       </a>
 
     </main>

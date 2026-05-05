@@ -1,6 +1,9 @@
 "use client";
 
+import { useState } from "react";
+
 export default function Home() {
+  const [showForm, setShowForm] = useState(false);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -18,6 +21,8 @@ Phone: ${phone}`;
       `https://wa.me/919501941186?text=${encodeURIComponent(message)}`,
       "_blank"
     );
+
+    setShowForm(false);
   };
 
   return (
@@ -28,13 +33,18 @@ Phone: ${phone}`;
         <h2>Edufi Classes</h2>
       </div>
 
-      {/* HERO */}
-      <div style={{ padding: "80px 20px", textAlign: "center", background: "#f5f5f5" }}>
+      {/* HERO SECTION */}
+      <div style={{
+        padding: "80px 20px",
+        textAlign: "center",
+        background: "#f5f5f5"
+      }}>
         <h1 style={{ fontSize: "40px" }}>Admissions Open 2026</h1>
         <p>Class 6th–12th | JEE | NEET</p>
 
-        <a href="#form">
-          <button style={{
+        <button
+          onClick={() => setShowForm(true)}
+          style={{
             marginTop: "20px",
             padding: "12px 25px",
             background: "#ff9800",
@@ -42,21 +52,19 @@ Phone: ${phone}`;
             color: "white",
             fontSize: "16px",
             cursor: "pointer"
-          }}>
-            Apply Now
-          </button>
-        </a>
+          }}
+        >
+          Enroll Now
+        </button>
       </div>
 
       {/* FEATURES */}
       <div style={{ padding: "50px", textAlign: "center" }}>
         <h2>Why Choose Edufi?</h2>
-        <div style={{ marginTop: "20px" }}>
-          <p>✅ Expert Faculty</p>
-          <p>✅ Small Batches</p>
-          <p>✅ Weekly Tests</p>
-          <p>✅ Personal Attention</p>
-        </div>
+        <p>✅ Expert Faculty</p>
+        <p>✅ Small Batches</p>
+        <p>✅ Weekly Tests</p>
+        <p>✅ Personal Attention</p>
       </div>
 
       {/* COURSES */}
@@ -67,36 +75,68 @@ Phone: ${phone}`;
         <p>Class 11th–12th + JEE / NEET</p>
       </div>
 
-      {/* FORM */}
-      <div id="form" style={{ padding: "50px", textAlign: "center" }}>
-        <h2>Apply for Admission</h2>
-
-        <form onSubmit={handleSubmit}>
-          <input id="name" placeholder="Student Name" required /><br /><br />
-          <input id="class" placeholder="Class" required /><br /><br />
-          <input id="phone" placeholder="Phone Number" required /><br /><br />
-
-          <button style={{
-            padding: "12px 20px",
-            background: "#25D366",
-            color: "white",
-            border: "none",
-            cursor: "pointer"
-          }}>
-            Apply on WhatsApp
-          </button>
-        </form>
-      </div>
-
       {/* FOOTER */}
-      <div style={{ padding: "20px", textAlign: "center", background: "#000", color: "#fff" }}>
+      <div style={{
+        padding: "20px",
+        textAlign: "center",
+        background: "#000",
+        color: "#fff"
+      }}>
         <p>📞 9501941186</p>
         <p>Hisar</p>
       </div>
 
-      {/* WHATSAPP FLOAT */}
+      {/* POPUP FORM */}
+      {showForm && (
+        <div style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          background: "rgba(0,0,0,0.6)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          zIndex: 99999
+        }}>
+          <div style={{
+            background: "#fff",
+            padding: "30px",
+            borderRadius: "10px",
+            width: "300px",
+            textAlign: "center"
+          }}>
+            <h3>Enquiry Form</h3>
+
+            <form onSubmit={handleSubmit}>
+              <input id="name" placeholder="Name" required /><br /><br />
+              <input id="class" placeholder="Class" required /><br /><br />
+              <input id="phone" placeholder="Phone Number" required /><br /><br />
+
+              <button
+                type="submit"
+                style={{
+                  padding: "10px 20px",
+                  background: "#25D366",
+                  color: "white",
+                  border: "none",
+                  cursor: "pointer"
+                }}
+              >
+                Submit
+              </button>
+            </form>
+
+            <br />
+            <button onClick={() => setShowForm(false)}>Close</button>
+          </div>
+        </div>
+      )}
+
+      {/* WHATSAPP FLOATING BUTTON */}
       <a
-        href="https://wa.me/919501941186"
+        href="https://wa.me/919501941186?text=Hi%20I%20want%20admission%20details"
         target="_blank"
         style={{
           position: "fixed",

@@ -20,26 +20,43 @@ Phone: ${phone}`;
   };
 
   return (
-    <main style={{ fontFamily: "Arial", textAlign: "center" }}>
+    <main style={{ fontFamily: "Arial" }}>
+
+      {/* HEADER */}
+      <div style={{ padding: "20px", background: "#000", color: "#fff" }}>
+        <h2>Edufi Classes</h2>
+      </div>
 
       {/* HERO SECTION */}
-      <div style={{ padding: "60px 20px", background: "#f5f5f5" }}>
-        <h1>Edufi Classes</h1>
-        <h2>Admissions Open 2026</h2>
+      <div style={{ padding: "60px", textAlign: "center", background: "#f5f5f5" }}>
+        <h1>Admissions Open 2026</h1>
         <p>Class 6th–12th | JEE | NEET</p>
       </div>
 
-      {/* FORM SECTION */}
-      <div style={{ padding: "40px" }}>
+      {/* FEATURES */}
+      <div style={{ padding: "40px", textAlign: "center" }}>
+        <h2>Why Choose Edufi?</h2>
+        <p>✔ Expert Faculty</p>
+        <p>✔ Small Batches</p>
+        <p>✔ Weekly Tests</p>
+      </div>
+
+      {/* FORM */}
+      <div style={{ padding: "40px", textAlign: "center", background: "#f9f9f9" }}>
         <h2>Apply for Admission</h2>
 
-        <form onSubmit={handleSubmit} style={{ marginTop: "20px" }}>
+        <form onSubmit={handleSubmit}>
           <input id="name" placeholder="Student Name" required /><br /><br />
           <input id="class" placeholder="Class" required /><br /><br />
           <input id="phone" placeholder="Phone Number" required /><br /><br />
 
           <button type="submit">Apply on WhatsApp</button>
         </form>
+      </div>
+
+      {/* FOOTER */}
+      <div style={{ padding: "20px", textAlign: "center", background: "#000", color: "#fff" }}>
+        <p>Contact: 9501941186</p>
       </div>
 
       {/* WHATSAPP BUTTON */}

@@ -94,26 +94,47 @@ Phone: ${phone}`;
           left: 0,
           width: "100%",
           height: "100%",
-          background: "rgba(0,0,0,0.6)",
+          background: "rgba(0,0,0,0.5)",
+backdropFilter: "blur(6px)",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           zIndex: 99999
         }}>
           <div style={{
-            background: "#fff",
-            padding: "30px",
-            borderRadius: "10px",
-            width: "300px",
-            textAlign: "center"
-          }}>
+  background: "#fff",
+  padding: "30px",
+  borderRadius: "12px",
+  width: "320px",
+  textAlign: "center",
+  boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
+  animation: "fadeIn 0.3s ease"
+}}>
+        
             <h3>Enquiry Form</h3>
 
             <form onSubmit={handleSubmit}>
-              <input id="name" placeholder="Name" required /><br /><br />
-              <input id="class" placeholder="Class" required /><br /><br />
-              <input id="phone" placeholder="Phone Number" required /><br /><br />
-
+              <input id="name" placeholder="Name" required style={{
+  width: "100%",
+  padding: "10px",
+  marginBottom: "10px",
+  borderRadius: "6px",
+  border: "1px solid #ccc"
+}} />
+              <input id="class" placeholder="Class" required style={{
+  width: "100%",
+  padding: "10px",
+  marginBottom: "10px",
+  borderRadius: "6px",
+  border: "1px solid #ccc"
+}} />
+              <input id="phone" placeholder="Phone Number" required style={{
+  width: "100%",
+  padding: "10px",
+  marginBottom: "10px",
+  borderRadius: "6px",
+  border: "1px solid #ccc"
+}} />
               <button
                 type="submit"
                 style={{
@@ -133,6 +154,7 @@ Phone: ${phone}`;
           </div>
         </div>
       )}
+
 
       {/* WHATSAPP FLOATING BUTTON */}
       <a

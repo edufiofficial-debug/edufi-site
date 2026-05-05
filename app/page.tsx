@@ -151,59 +151,6 @@ Phone: ${phone}`;
       >
         💬
       </a>
-      {showForm && (
-  <div style={{
-    position: "fixed",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    background: "rgba(0,0,0,0.6)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 99999
-  }}>
-    <div style={{
-      background: "#fff",
-      padding: "30px",
-      borderRadius: "10px",
-      textAlign: "center"
-    }}>
-      <h3>Enquiry Form</h3>
-
-      <form onSubmit={(e) => {
-        e.preventDefault();
-
-        const name = (document.getElementById("name") as HTMLInputElement).value;
-        const cls = (document.getElementById("class") as HTMLInputElement).value;
-        const phone = (document.getElementById("phone") as HTMLInputElement).value;
-
-        const message = `Hi, I want admission:
-Name: ${name}
-Class: ${cls}
-Phone: ${phone}`;
-
-        window.open(
-          `https://wa.me/919501941186?text=${encodeURIComponent(message)}`,
-          "_blank"
-        );
-
-        setShowForm(false);
-      }}>
-        <input id="name" placeholder="Name" required /><br /><br />
-        <input id="class" placeholder="Class" required /><br /><br />
-        <input id="phone" placeholder="Phone" required /><br /><br />
-
-        <button type="submit">Submit</button>
-      </form>
-
-      <br />
-      <button onClick={() => setShowForm(false)}>Close</button>
-    </div>
-  </div>
-)}
-
     </main>
   );
 }

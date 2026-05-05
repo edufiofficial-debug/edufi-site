@@ -77,11 +77,11 @@ Phone: ${phone}`;
           width="40"
           alt="whatsapp"
         />
-
-
-        <a
+      </a>
+<a
   href="https://wa.me/919501941186"
   target="_blank"
+  rel="noopener noreferrer"
   style={{
     position: "fixed",
     bottom: "20px",
@@ -98,8 +98,6 @@ Phone: ${phone}`;
     alt="whatsapp"
   />
 </a>
-      </a>
-
     </main>
   );
 }

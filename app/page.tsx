@@ -1,6 +1,7 @@
 "use client";
 
 export default function Home() {
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
@@ -23,26 +24,51 @@ Phone: ${phone}`;
     <main style={{ fontFamily: "Arial" }}>
 
       {/* HEADER */}
-      <div style={{ padding: "20px", background: "#000", color: "#fff" }}>
+      <div style={{ padding: "15px 30px", background: "#000", color: "#fff" }}>
         <h2>Edufi Classes</h2>
       </div>
 
-      {/* HERO SECTION */}
-      <div style={{ padding: "60px", textAlign: "center", background: "#f5f5f5" }}>
-        <h1>Admissions Open 2026</h1>
+      {/* HERO */}
+      <div style={{ padding: "80px 20px", textAlign: "center", background: "#f5f5f5" }}>
+        <h1 style={{ fontSize: "40px" }}>Admissions Open 2026</h1>
         <p>Class 6th–12th | JEE | NEET</p>
+
+        <a href="#form">
+          <button style={{
+            marginTop: "20px",
+            padding: "12px 25px",
+            background: "#ff9800",
+            border: "none",
+            color: "white",
+            fontSize: "16px",
+            cursor: "pointer"
+          }}>
+            Apply Now
+          </button>
+        </a>
       </div>
 
       {/* FEATURES */}
-      <div style={{ padding: "40px", textAlign: "center" }}>
+      <div style={{ padding: "50px", textAlign: "center" }}>
         <h2>Why Choose Edufi?</h2>
-        <p>✔ Expert Faculty</p>
-        <p>✔ Small Batches</p>
-        <p>✔ Weekly Tests</p>
+        <div style={{ marginTop: "20px" }}>
+          <p>✅ Expert Faculty</p>
+          <p>✅ Small Batches</p>
+          <p>✅ Weekly Tests</p>
+          <p>✅ Personal Attention</p>
+        </div>
+      </div>
+
+      {/* COURSES */}
+      <div style={{ padding: "50px", background: "#f9f9f9", textAlign: "center" }}>
+        <h2>Our Courses</h2>
+        <p>Class 6th–8th Foundation</p>
+        <p>Class 9th–10th Boards</p>
+        <p>Class 11th–12th + JEE / NEET</p>
       </div>
 
       {/* FORM */}
-      <div style={{ padding: "40px", textAlign: "center", background: "#f9f9f9" }}>
+      <div id="form" style={{ padding: "50px", textAlign: "center" }}>
         <h2>Apply for Admission</h2>
 
         <form onSubmit={handleSubmit}>
@@ -50,16 +76,25 @@ Phone: ${phone}`;
           <input id="class" placeholder="Class" required /><br /><br />
           <input id="phone" placeholder="Phone Number" required /><br /><br />
 
-          <button type="submit">Apply on WhatsApp</button>
+          <button style={{
+            padding: "12px 20px",
+            background: "#25D366",
+            color: "white",
+            border: "none",
+            cursor: "pointer"
+          }}>
+            Apply on WhatsApp
+          </button>
         </form>
       </div>
 
       {/* FOOTER */}
       <div style={{ padding: "20px", textAlign: "center", background: "#000", color: "#fff" }}>
-        <p>Contact: 9501941186</p>
+        <p>📞 9501941186</p>
+        <p>Hisar</p>
       </div>
 
-      {/* WHATSAPP BUTTON */}
+      {/* WHATSAPP FLOAT */}
       <a
         href="https://wa.me/919501941186"
         target="_blank"
@@ -68,36 +103,15 @@ Phone: ${phone}`;
           bottom: "20px",
           right: "20px",
           backgroundColor: "#25D366",
-          padding: "12px",
-          borderRadius: "50%"
+          padding: "15px",
+          borderRadius: "50%",
+          zIndex: 99999,
+          boxShadow: "0 4px 10px rgba(0,0,0,0.3)"
         }}
       >
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
-          width="40"
-          alt="whatsapp"
-        />
+        💬
       </a>
-<a
-  href="https://wa.me/919501941186"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    position: "fixed",
-    bottom: "20px",
-    right: "20px",
-    backgroundColor: "#25D366",
-    padding: "12px",
-    borderRadius: "50%",
-    zIndex: 9999
-  }}
->
-  <img
-    src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
-    width="40"
-    alt="whatsapp"
-  />
-</a>
+
     </main>
   );
 }

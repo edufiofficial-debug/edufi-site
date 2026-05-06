@@ -1,21 +1,27 @@
 "use client";
 
 import { useState } from "react";
+import type React from "react";
+
 
 export default function Home() {
   const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    studentClass: "",
+    phone: ""
+  });
 
-  const handleSubmit = (e: any) => {
+  const handleChange = (field: "name" | "studentClass" | "phone") =>
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setFormData((prev) => ({ ...prev, [field]: event.target.value }));
+    };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const name = (document.getElementById("name") as HTMLInputElement).value;
-    const studentClass = (document.getElementById("class") as HTMLInputElement).value;
-    const phone = (document.getElementById("phone") as HTMLInputElement).value;
-
-    const message = `Hi, I want admission:
-Name: ${name}
-Class: ${studentClass}
-Phone: ${phone}`;
+    const { name, studentClass, phone } = formData;
+    const message = `Hi, I want admission:\nName: ${name}\nClass: ${studentClass}\nPhone: ${phone}`;
 
     window.open(
       `https://wa.me/919501941186?text=${encodeURIComponent(message)}`,
@@ -23,26 +29,29 @@ Phone: ${phone}`;
     );
 
     setShowForm(false);
+    setFormData({ name: "", studentClass: "", phone: "" });
   };
 
   return (
-<main style={{fontFamily: "Arial"}}>
-
+    <main style={{ fontFamily: "Arial" }}>
       {/* HEADER */}
       <div style={{ padding: "15px 30px", background: "#000", color: "#fff" }}>
         <h2>Edufi Classes</h2>
       </div>
 
       {/* HERO SECTION */}
-      <div style={{
-        padding: "80px 20px",
-        textAlign: "center",
-        background: "#f5f5f5"
-      }}>
+      <div
+        style={{
+          padding: "80px 20px",
+          textAlign: "center",
+          background: "#f5f5f5"
+        }}
+      >
         <h1 style={{ fontSize: "40px" }}>Admissions Open 2026</h1>
         <p>Class 6th–12th | JEE | NEET</p>
 
         <button
+          type="button"
           onClick={() => setShowForm(true)}
           style={{
             marginTop: "20px",
@@ -76,65 +85,98 @@ Phone: ${phone}`;
       </div>
 
       {/* FOOTER */}
-      <div style={{
-        padding: "20px",
-        textAlign: "center",
-        background: "#000",
-        color: "#fff"
-      }}>
+      <div
+        style={{
+          padding: "20px",
+          textAlign: "center",
+          background: "#000",
+          color: "#fff"
+        }}
+      >
         <p>📞 9501941186</p>
         <p>Hisar</p>
       </div>
 
       {/* POPUP FORM */}
       {showForm && (
-        <div style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          background: "rgba(0,0,0,0.5)",
-backdropFilter: "blur(6px)",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          zIndex: 99999
-        }}>
-          <div style={{
-  background: "#fff",
-  padding: "30px",
-  borderRadius: "12px",
-  width: "320px",
-  textAlign: "center",
-  boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
-  animation: "fadeIn 0.3s ease"
-}}>
-        
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "rgba(0,0,0,0.5)",
+            backdropFilter: "blur(6px)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 99999
+          }}
+          onClick={() => setShowForm(false)}
+        >
+          <div
+            style={{
+              background: "#fff",
+              padding: "30px",
+              borderRadius: "12px",
+              width: "320px",
+              textAlign: "center",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.3)"
+            }}
+            onClick={(event) => event.stopPropagation()}
+          >
             <h3>Enquiry Form</h3>
 
             <form onSubmit={handleSubmit}>
-              <input id="name" placeholder="Name" required style={{
-  width: "100%",
-  padding: "10px",
-  marginBottom: "10px",
-  borderRadius: "6px",
-  border: "1px solid #ccc"
-}} />
-              <input id="class" placeholder="Class" required style={{
-  width: "100%",
-  padding: "10px",
-  marginBottom: "10px",
-  borderRadius: "6px",
-  border: "1px solid #ccc"
-}} />
-              <input id="phone" placeholder="Phone Number" required style={{
-  width: "100%",
-  padding: "10px",
-  marginBottom: "10px",
-  borderRadius: "6px",
-  border: "1px solid #ccc"
-}} />
+              <input
+                id="name"
+                name="name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange("name")}
+                placeholder="Name"
+                required
+                style={{
+                  width: "100%",
+                  padding: "10px",
+                  marginBottom: "10px",
+                  borderRadius: "6px",
+                  border: "1px solid #ccc"
+                }}
+              />
+              <input
+                id="studentClass"
+                name="studentClass"
+                type="text"
+                value={formData.studentClass}
+                onChange={handleChange("studentClass")}
+                placeholder="Class"
+                required
+                style={{
+                  width: "100%",
+                  padding: "10px",
+                  marginBottom: "10px",
+                  borderRadius: "6px",
+                  border: "1px solid #ccc"
+                }}
+              />
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleChange("phone")}
+                placeholder="Phone Number"
+                required
+                style={{
+                  width: "100%",
+                  padding: "10px",
+                  marginBottom: "10px",
+                  borderRadius: "6px",
+                  border: "1px solid #ccc"
+                }}
+              />
               <button
                 type="submit"
                 style={{
@@ -150,16 +192,27 @@ backdropFilter: "blur(6px)",
             </form>
 
             <br />
-            <button onClick={() => setShowForm(false)}>Close</button>
+            <button
+              type="button"
+              onClick={() => setShowForm(false)}
+              style={{
+                padding: "10px 20px",
+                background: "#ddd",
+                border: "none",
+                cursor: "pointer"
+              }}
+            >
+              Close
+            </button>
           </div>
         </div>
       )}
-
 
       {/* WHATSAPP FLOATING BUTTON */}
       <a
         href="https://wa.me/919501941186?text=Hi%20I%20want%20admission%20details"
         target="_blank"
+        rel="noreferrer"
         style={{
           position: "fixed",
           bottom: "20px",

@@ -1,30 +1,34 @@
 "use client";
 
-import { useState } from "react";
-import type React from "react";
+console.log("EDUFI HOME LOADED");
 
+import { useState } from "react";
 
 export default function Home() {
   const [showForm, setShowForm] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     studentClass: "",
     phone: ""
   });
 
-  const handleChange = (field: "name" | "studentClass" | "phone") =>
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setFormData((prev) => ({ ...prev, [field]: event.target.value }));
+  const handleChange =
+    (field: "name" | "studentClass" | "phone") =>
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setFormData((prev) => ({ ...prev, [field]: e.target.value }));
     };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const { name, studentClass, phone } = formData;
-    const message = `Hi, I want admission:\nName: ${name}\nClass: ${studentClass}\nPhone: ${phone}`;
+    const msg = `Admission Enquiry:
+Name: ${formData.name}
+Class: ${formData.studentClass}
+Phone: ${formData.phone}`;
 
     window.open(
-      `https://wa.me/919501941186?text=${encodeURIComponent(message)}`,
+      `https://wa.me/919501941186?text=${encodeURIComponent(msg)}`,
       "_blank"
     );
 
@@ -34,198 +38,147 @@ export default function Home() {
 
   return (
     <main style={{ fontFamily: "Arial" }}>
-      {/* HEADER */}
-      <div style={{ padding: "15px 30px", background: "#000", color: "#fff" }}>
-        <h2>Edufi Classes</h2>
-      </div>
 
-      {/* HERO SECTION */}
-      <div
-        style={{
-          padding: "80px 20px",
-          textAlign: "center",
-          background: "#f5f5f5"
-        }}
-      >
-        <h1 style={{ fontSize: "40px" }}>Admissions Open 2026</h1>
-        <p>Class 6th–12th | JEE | NEET</p>
+      {/* HERO */}
+      <section style={{ padding: "80px 20px", textAlign: "center", background: "#f5f5f5" }}>
+        <h1>🚀 Edufi Classes Admissions Open 2026</h1>
+        <p>Class 6th–12th | JEE | NEET | Foundation</p>
 
         <button
-          type="button"
           onClick={() => setShowForm(true)}
           style={{
-            marginTop: "20px",
+            marginTop: 20,
             padding: "12px 25px",
             background: "#ff9800",
-            border: "none",
-            color: "white",
-            fontSize: "16px",
+            border: 0,
+            color: "#fff",
             cursor: "pointer"
           }}
         >
-          Enroll Now
+          Enroll Now (Free Counselling)
         </button>
-      </div>
+      </section>
 
-      {/* FEATURES */}
-      <div style={{ padding: "50px", textAlign: "center" }}>
-        <h2>Why Choose Edufi?</h2>
-        <p>✅ Expert Faculty</p>
-        <p>✅ Small Batches</p>
-        <p>✅ Weekly Tests</p>
-        <p>✅ Personal Attention</p>
-      </div>
+      {/* TRUST STRIP */}
+      <section style={{ padding: 30, textAlign: "center", background: "#000", color: "#fff" }}>
+        ⭐ 1000+ Students | 🏆 Top Results | 📚 Expert Faculty | 🎯 Weekly Tests
+      </section>
 
       {/* COURSES */}
-      <div style={{ padding: "50px", background: "#f9f9f9", textAlign: "center" }}>
+      <section style={{ padding: 50, textAlign: "center" }}>
         <h2>Our Courses</h2>
-        <p>Class 6th–8th Foundation</p>
-        <p>Class 9th–10th Boards</p>
-        <p>Class 11th–12th + JEE / NEET</p>
-      </div>
+        <p>📘 Class 6–8 Foundation</p>
+        <p>📗 Class 9–10 Boards</p>
+        <p>📙 Class 11–12 Science</p>
+        <p>⚡ JEE / NEET Preparation</p>
+      </section>
+
+      {/* WHY US */}
+      <section style={{ padding: 50, background: "#f9f9f9", textAlign: "center" }}>
+        <h2>Why Students Choose Edufi</h2>
+        <p>✔ Experienced Teachers</p>
+        <p>✔ Small Batches</p>
+        <p>✔ Personal Attention</p>
+        <p>✔ Weekly Tests & Analysis</p>
+        <p>✔ Doubt Sessions</p>
+      </section>
+
+      {/* RESULTS */}
+      <section style={{ padding: 50, textAlign: "center" }}>
+        <h2>🏆 Student Results</h2>
+        <p>• 90%+ Students Score Above 80%</p>
+        <p>• School Topper Students</p>
+        <p>• JEE/NEET Selections</p>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section style={{ padding: 50, background: "#f5f5f5", textAlign: "center" }}>
+        <h2>What Parents Say</h2>
+        <p>“Best coaching in Hisar. My child improved a lot.”</p>
+        <p>“Excellent teaching and discipline.”</p>
+        <p>“Highly recommended for boards & competition.”</p>
+      </section>
+
+      {/* FINAL CTA */}
+      <section style={{ padding: 60, textAlign: "center", background: "#000", color: "#fff" }}>
+        <h2>🎯 Limited Seats Available</h2>
+        <button
+          onClick={() => setShowForm(true)}
+          style={{
+            marginTop: 20,
+            padding: "12px 25px",
+            background: "#25D366",
+            border: 0,
+            color: "#fff",
+            cursor: "pointer"
+          }}
+        >
+          Book Free Demo Class
+        </button>
+      </section>
 
       {/* FOOTER */}
-      <div
+      <footer style={{ padding: 20, textAlign: "center" }}>
+        📞 9501941186 | 📍 Hisar | Edufi Classes
+      </footer>
+
+      {/* FLOATING WHATSAPP */}
+      <a
+        href="https://wa.me/919501941186?text=Hi%20I%20want%20admission"
+        target="_blank"
         style={{
-          padding: "20px",
-          textAlign: "center",
-          background: "#000",
+          position: "fixed",
+          bottom: 20,
+          right: 20,
+          background: "#25D366",
+          padding: 15,
+          borderRadius: "50%",
           color: "#fff"
         }}
       >
-        <p>📞 9501941186</p>
-        <p>Hisar</p>
-      </div>
+        💬
+      </a>
 
       {/* POPUP FORM */}
       {showForm && (
         <div
+          onClick={() => setShowForm(false)}
           style={{
             position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            background: "rgba(0,0,0,0.5)",
-            backdropFilter: "blur(6px)",
+            inset: 0,
+            background: "rgba(0,0,0,0.6)",
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
-            zIndex: 99999
+            alignItems: "center"
           }}
-          onClick={() => setShowForm(false)}
         >
           <div
+            onClick={(e) => e.stopPropagation()}
             style={{
               background: "#fff",
-              padding: "30px",
-              borderRadius: "12px",
-              width: "320px",
-              textAlign: "center",
-              boxShadow: "0 20px 60px rgba(0,0,0,0.3)"
+              padding: 25,
+              borderRadius: 10,
+              width: 300
             }}
-            onClick={(event) => event.stopPropagation()}
           >
-            <h3>Enquiry Form</h3>
+            <h3>Admission Form</h3>
 
             <form onSubmit={handleSubmit}>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                value={formData.name}
-                onChange={handleChange("name")}
-                placeholder="Name"
-                required
-                style={{
-                  width: "100%",
-                  padding: "10px",
-                  marginBottom: "10px",
-                  borderRadius: "6px",
-                  border: "1px solid #ccc"
-                }}
-              />
-              <input
-                id="studentClass"
-                name="studentClass"
-                type="text"
-                value={formData.studentClass}
-                onChange={handleChange("studentClass")}
-                placeholder="Class"
-                required
-                style={{
-                  width: "100%",
-                  padding: "10px",
-                  marginBottom: "10px",
-                  borderRadius: "6px",
-                  border: "1px solid #ccc"
-                }}
-              />
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                value={formData.phone}
-                onChange={handleChange("phone")}
-                placeholder="Phone Number"
-                required
-                style={{
-                  width: "100%",
-                  padding: "10px",
-                  marginBottom: "10px",
-                  borderRadius: "6px",
-                  border: "1px solid #ccc"
-                }}
-              />
-              <button
-                type="submit"
-                style={{
-                  padding: "10px 20px",
-                  background: "#25D366",
-                  color: "white",
-                  border: "none",
-                  cursor: "pointer"
-                }}
-              >
-                Submit
+              <input placeholder="Name" required onChange={handleChange("name")} />
+              <input placeholder="Class" required onChange={handleChange("studentClass")} />
+              <input placeholder="Phone" required onChange={handleChange("phone")} />
+
+              <button type="submit" style={{ marginTop: 10 }}>
+                Submit on WhatsApp
               </button>
             </form>
 
-            <br />
-            <button
-              type="button"
-              onClick={() => setShowForm(false)}
-              style={{
-                padding: "10px 20px",
-                background: "#ddd",
-                border: "none",
-                cursor: "pointer"
-              }}
-            >
+            <button onClick={() => setShowForm(false)} style={{ marginTop: 10 }}>
               Close
             </button>
           </div>
         </div>
       )}
-
-      {/* WHATSAPP FLOATING BUTTON */}
-      <a
-        href="https://wa.me/919501941186?text=Hi%20I%20want%20admission%20details"
-        target="_blank"
-        rel="noreferrer"
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          right: "20px",
-          backgroundColor: "#25D366",
-          padding: "15px",
-          borderRadius: "50%",
-          zIndex: 99999,
-          boxShadow: "0 4px 10px rgba(0,0,0,0.3)"
-        }}
-      >
-        💬
-      </a>
     </main>
   );
 }

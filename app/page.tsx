@@ -438,70 +438,68 @@ export default function Home() {
       </section>
 
       {/* VIDEO TESTIMONIALS */}
-      <section className="py-14 md:py-24 px-4 md:px-6 bg-[#0f172a] text-white">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-center text-[#facc15] font-extrabold mb-3">
-            Student Voices
-          </p>
+      {/* VIDEO TESTIMONIALS */}
+<section className="py-14 md:py-24 px-4 md:px-6 bg-[#0f172a] text-white">
+  <div className="max-w-7xl mx-auto">
+    <p className="text-center text-[#facc15] font-extrabold mb-3">
+      Student Voices
+    </p>
 
-          <h2 className="text-3xl md:text-5xl font-extrabold text-center">
-            Student Video Testimonials
-          </h2>
+    <h2 className="text-3xl md:text-5xl font-extrabold text-center">
+      Student Video Testimonials
+    </h2>
 
-          <p className="text-center text-blue-100 mt-5 text-base md:text-lg">
-            Hear directly from our successful students.
-          </p>
+    <p className="text-center text-blue-100 mt-5 text-base md:text-lg">
+      Hear directly from our successful students.
+    </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mt-10 md:mt-16">
-            {[
-              {
-                src: "/testimonial/testimonial1.mp4",
-                name: "Kush Aggarwal",
-                text: "Improved from 65% to 95%",
-              },
-              {
-                src: "/testimonial/testimonial2.mp4",
-                name: "Priya Verma",
-                text: "Scored 99 in Maths",
-              },
-              {
-                src: "/testimonial/testimonial3.mp4",
-                name: "Aman Singh",
-                text: "Cleared Foundation Exam",
-              },
-            ].map((video, i) => (
-              <div
-                key={i}
-                className="bg-[#1e293b] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-[#38bdf8]/20 hover:-translate-y-2 md:hover:-translate-y-3 transition-all duration-300"
-              >
-                <video
-                  ref={(el) => {
-                    videoRefs.current[i] = el;
-                  }}
-                  controls
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  className="w-full h-64 md:h-72 object-contain bg-black"
-                >
-                  <source src={video.src} type="video/mp4" />
-                </video>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mt-10 md:mt-16">
+      {[
+        {
+          src: "/testimonial/testimonial1.mp4",
+          name: "Kush Aggarwal",
+          text: "Improved from 65% to 95%",
+        },
+        {
+          src: "/testimonial/testimonial2.mp4",
+          name: "Priya Verma",
+          text: "Scored 99 in Maths",
+        },
+        {
+          src: "/testimonial/testimonial3.mp4",
+          name: "Aman Singh",
+          text: "Cleared Foundation Exam",
+        },
+      ].map((video, i) => (
+        <div
+          key={i}
+          className="bg-[#1e293b] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-[#38bdf8]/20"
+        >
+          <video
+            controls
+            muted
+            playsInline
+            preload="metadata"
+            className="w-full h-64 md:h-72 object-contain bg-black"
+          >
+            <source src={video.src} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
 
-                <div className="p-5 md:p-6">
-                  <h3 className="text-xl md:text-2xl font-bold">
-                    {video.name}
-                  </h3>
+          <div className="p-5 md:p-6">
+            <h3 className="text-xl md:text-2xl font-bold">
+              {video.name}
+            </h3>
 
-                  <p className="text-[#facc15] mt-2 text-sm md:text-base">
-                    {video.text}
-                  </p>
-                </div>
-              </div>
-            ))}
+            <p className="text-[#facc15] mt-2 text-sm md:text-base">
+              {video.text}
+            </p>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* PARENTS */}
       <section className="py-14 md:py-24 px-4 md:px-6 bg-white">

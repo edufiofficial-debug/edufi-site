@@ -3,12 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import {
-  Phone,
-  MapPin,
-  Star,
-  MessageCircle,
-} from "lucide-react";
+import { Phone, MapPin, Star, MessageCircle, Menu, X } from "lucide-react";
 
 export default function Home() {
   const [showForm, setShowForm] = useState(false);
@@ -62,85 +57,131 @@ export default function Home() {
 
   return (
     <main className="bg-white text-[#0f172a] overflow-x-hidden">
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section className="relative min-h-screen bg-gradient-to-br from-[#0f172a] via-[#111827] to-[#1e3a8a] text-white overflow-hidden">
         {/* NAVBAR */}
         <header className="fixed top-0 left-0 w-full z-50 bg-[#0f172a]/95 backdrop-blur-xl border-b border-[#38bdf8]/20">
-  <div className="max-w-7xl mx-auto px-4 md:px-12 py-4">
-    <div className="flex items-center justify-between">
-      <h1 className="text-2xl md:text-4xl font-extrabold leading-tight">
-        <span className="text-[#facc15]">Edufi</span>{" "}
-        <span className="text-white">Classes</span>
-      </h1>
+          <div className="max-w-7xl mx-auto px-4 md:px-12 py-4">
+            <div className="flex items-center justify-between">
+              <h1 className="text-2xl md:text-4xl font-extrabold leading-tight">
+                <span className="text-[#facc15]">Edufi</span>{" "}
+                <span className="text-white">Classes</span>
+              </h1>
 
-      <button
-        onClick={() => setShowMenu(!showMenu)}
-        className="md:hidden bg-[#facc15] text-[#0f172a] px-5 py-2 rounded-full font-bold"
-      >
-        Menu
-      </button>
+              <button
+                onClick={() => setShowMenu(!showMenu)}
+                className="md:hidden bg-[#facc15] text-[#0f172a] px-4 py-2 rounded-full font-bold flex items-center gap-2"
+              >
+                {showMenu ? <X size={20} /> : <Menu size={20} />}
+                Menu
+              </button>
 
-      <div className="hidden md:flex items-center gap-4">
-        <Link href="/contact" className="bg-[#facc15] text-[#0f172a] font-bold px-5 py-2 rounded-full">
-          Contact
-        </Link>
+              <div className="hidden md:flex items-center gap-4">
+                <Link
+                  href="/contact"
+                  className="bg-[#facc15] hover:bg-[#fde047] text-[#0f172a] font-bold px-5 py-2 rounded-full transition hover:scale-105"
+                >
+                  Contact
+                </Link>
 
-        <Link href="https://web.eduficlasses.com/courses/842135?utm_source%3Dother%26utm_medium%3Dtutor-course-referral%26utm_campaign%3Dcourse-overview-webapp" className="bg-[#facc15] text-[#0f172a] font-bold px-5 py-2 rounded-full">
-          Courses
-        </Link>
+                <Link
+                  href="https://web.eduficlasses.com/courses/842135?utm_source%3Dother%26utm_medium%3Dtutor-course-referral%26utm_campaign%3Dcourse-overview-webapp"
+                  className="bg-[#facc15] hover:bg-[#fde047] text-[#0f172a] font-bold px-5 py-2 rounded-full transition hover:scale-105"
+                >
+                  Courses
+                </Link>
 
-        <a href="https://wa.me/919501941186" target="_blank" rel="noopener noreferrer" className="bg-[#22c55e] text-white px-5 py-2 rounded-full font-bold">
-          WhatsApp
-        </a>
+                <a
+                  href="https://wa.me/919501941186"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#22c55e] hover:bg-[#16a34a] text-white px-5 py-2 rounded-full font-bold transition hover:scale-105"
+                >
+                  WhatsApp
+                </a>
 
-        <a href="https://www.youtube.com/@edufi_classes" target="_blank" rel="noopener noreferrer" className="bg-[#dc2626] text-white px-5 py-2 rounded-full font-bold">
-          YouTube
-        </a>
+                <a
+                  href="https://www.youtube.com/@edufi_classes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#dc2626] hover:bg-[#b91c1c] text-white px-5 py-2 rounded-full font-bold transition hover:scale-105"
+                >
+                  YouTube
+                </a>
 
-        <button
-          onClick={() => setShowForm(true)}
-          className="border border-[#facc15] text-[#facc15] px-5 py-2 rounded-full font-bold"
-        >
-          Enroll Now
-        </button>
-      </div>
-    </div>
+                <button
+                  onClick={() => setShowForm(true)}
+                  className="border border-[#facc15] text-[#facc15] hover:bg-[#facc15] hover:text-[#0f172a] px-5 py-2 rounded-full font-bold transition hover:scale-105"
+                >
+                  Enroll Now
+                </button>
+              </div>
+            </div>
 
-    {showMenu && (
-      <div className="md:hidden grid grid-cols-2 gap-3 mt-4">
-        <Link href="/contact" className="bg-[#facc15] text-[#0f172a] font-bold px-4 py-3 rounded-2xl text-center">
-          Contact
-        </Link>
+            {showMenu && (
+              <div className="md:hidden grid grid-cols-2 gap-3 mt-4">
+                <Link
+                  href="/contact"
+                  className="bg-[#facc15] text-[#0f172a] font-bold px-4 py-3 rounded-2xl text-center"
+                >
+                  Contact
+                </Link>
 
-        <Link href="https://web.eduficlasses.com/courses/842135?utm_source%3Dother%26utm_medium%3Dtutor-course-referral%26utm_campaign%3Dcourse-overview-webapp" className="bg-[#facc15] text-[#0f172a] font-bold px-4 py-3 rounded-2xl text-center">
-          Courses
-        </Link>
+                <Link
+                  href="https://web.eduficlasses.com/courses/842135?utm_source%3Dother%26utm_medium%3Dtutor-course-referral%26utm_campaign%3Dcourse-overview-webapp"
+                  className="bg-[#facc15] text-[#0f172a] font-bold px-4 py-3 rounded-2xl text-center"
+                >
+                  Courses
+                </Link>
 
-        <a href="https://wa.me/919501941186" target="_blank" rel="noopener noreferrer" className="bg-[#22c55e] text-white px-4 py-3 rounded-2xl font-bold text-center">
-          WhatsApp
-        </a>
+                <a
+                  href="https://wa.me/919501941186"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#22c55e] text-white px-4 py-3 rounded-2xl font-bold text-center"
+                >
+                  WhatsApp
+                </a>
 
-        <a href="https://www.youtube.com/@edufi_classes" target="_blank" rel="noopener noreferrer" className="bg-[#dc2626] text-white px-4 py-3 rounded-2xl font-bold text-center">
-          YouTube
-        </a>
+                <a
+                  href="https://www.youtube.com/@edufi_classes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#dc2626] text-white px-4 py-3 rounded-2xl font-bold text-center"
+                >
+                  YouTube
+                </a>
 
-        <button
-          onClick={() => setShowForm(true)}
-          className="col-span-2 border border-[#facc15] text-[#facc15] px-4 py-3 rounded-2xl font-bold"
-        >
-          Enroll Now
-        </button>
-      </div>
-    )}
-  </div>
-</header>
+                <button
+                  onClick={() => setShowForm(true)}
+                  className="col-span-2 border border-[#facc15] text-[#facc15] px-4 py-3 rounded-2xl font-bold"
+                >
+                  Enroll Now
+                </button>
+              </div>
+            )}
+          </div>
+        </header>
+
+        {/* DESKTOP SCHOLARSHIP BADGE */}
+        <div className="absolute top-32 right-[18%] z-20 hidden md:block">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#facc15] to-[#f59e0b] text-[#0f172a] px-6 py-3 rounded-2xl font-extrabold shadow-2xl text-base animate-pulse">
+            🏆 Scholarship Test for Bright Students
+          </div>
+        </div>
 
         {/* HERO CONTENT */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center px-4 md:px-6 pt-28 md:pt-32 pb-16 md:pb-24">
           <div className="text-center md:text-left">
-            <span className="inline-block bg-white/10 text-[#facc15] border border-[#facc15]/60 px-4 md:px-5 py-2 rounded-full font-bold mb-6 text-sm md:text-base">
+            <span className="inline-block bg-white/10 text-[#facc15] border border-[#facc15]/60 px-4 md:px-5 py-2 rounded-full font-bold mb-4 text-sm md:text-base">
               🚀 New Batch Open for Class 6th - 10th
             </span>
+
+            <div className="md:hidden mb-6">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#facc15] to-[#f59e0b] text-[#0f172a] px-4 py-2 rounded-2xl font-extrabold shadow-xl text-sm animate-pulse">
+                🏆 Scholarship Test
+              </div>
+            </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black leading-tight tracking-tight">
               Learn <span className="text-[#facc15]">Maths</span> &{" "}
@@ -200,7 +241,9 @@ export default function Home() {
                   key={i}
                   className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl md:rounded-3xl p-3 md:p-5 hover:bg-white/20 hover:-translate-y-2 transition-all"
                 >
-                  <h2 className={`text-2xl md:text-4xl font-black ${stat.color}`}>
+                  <h2
+                    className={`text-2xl md:text-4xl font-black ${stat.color}`}
+                  >
                     {stat.number}
                   </h2>
                   <p className="text-blue-100 mt-1 text-xs md:text-base">
@@ -236,6 +279,10 @@ export default function Home() {
       {/* COURSES */}
       <section className="py-14 md:py-24 px-4 md:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
+          <p className="text-center text-[#2563eb] font-extrabold mb-3">
+            Our Programs
+          </p>
+
           <h2 className="text-3xl md:text-5xl font-extrabold text-center text-[#0f172a]">
             Popular Courses
           </h2>
@@ -246,20 +293,20 @@ export default function Home() {
               { title: "Class 10 Board Maths", img: "/course2.jpg" },
               { title: "SSC CGL Quant", img: "/course3.jpg" },
             ].map((course, i) => (
-              <div
-                key={i}
-                className="rounded-2xl md:rounded-3xl overflow-hidden shadow-xl bg-white border border-blue-100 hover:-translate-y-2 md:hover:-translate-y-3 hover:shadow-2xl transition-all duration-300"
-              >
-                <div className="relative w-full h-52 md:h-64 bg-white flex items-center justify-center overflow-hidden">
-                  <Image
-                    src={course.img}
-                    alt={course.title}
-                    fill
-                    className="object-contain object-center p-2 transition-transform duration-500 hover:scale-105"
-                  />
-                </div>
+             <div
+  key={i}
+  className="rounded-2xl md:rounded-3xl overflow-hidden shadow-xl bg-white border border-blue-100 hover:-translate-y-2 md:hover:-translate-y-3 hover:shadow-2xl transition-all duration-300"
+>
+  <div className="relative w-full h-72 md:h-80 bg-[#020617] overflow-hidden">
+    <Image
+      src={course.img}
+      alt={course.title}
+      fill
+      className="object-cover object-center transition-transform duration-500 hover:scale-105"
+    />
+  </div>
 
-                <div className="p-5 md:p-6">
+  <div className="p-5 md:p-6">
                   <h3 className="text-2xl md:text-3xl font-extrabold text-[#0f172a]">
                     {course.title}
                   </h3>
@@ -282,8 +329,12 @@ export default function Home() {
       </section>
 
       {/* STUDENT RESULTS */}
-      <section className="py-14 md:py-24 px-4 md:px-6 bg-gradient-to-br from-[#eff6ff] via-white to-[#dbeafe]">
+      <section className="py-14 md:py-24 px-4 md:px-6 bg-gradient-to-br from-[#eff6ff] via-white to-[#dbeafe] overflow-hidden">
         <div className="max-w-7xl mx-auto">
+          <p className="text-center text-[#2563eb] font-extrabold mb-3">
+            Results That Speak
+          </p>
+
           <h2 className="text-3xl md:text-5xl font-extrabold text-center text-[#0f172a]">
             Student Success Stories
           </h2>
@@ -292,71 +343,96 @@ export default function Home() {
             Real progress. Real results. Real confidence.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mt-10 md:mt-16">
-            {[
-              {
-                name: "Vivek",
-                marks: "98%",
-                img: "/student1.jpg",
-                badge: "Board Topper",
-                color: "from-[#38bdf8] to-[#2563eb]",
-              },
-              {
-                name: "Priya Verma",
-                marks: "99%",
-                img: "/student2.jpg",
-                badge: "Maths Star",
-                color: "from-[#facc15] to-[#f59e0b]",
-              },
-              {
-                name: "Aman Singh",
-                marks: "97%",
-                img: "/student3.jpg",
-                badge: "Top Performer",
-                color: "from-[#60a5fa] to-[#2563eb]",
-              },
-            ].map((student, i) => (
-              <div
-                key={i}
-                className="group relative overflow-hidden bg-white rounded-2xl md:rounded-3xl shadow-xl hover:-translate-y-2 md:hover:-translate-y-3 hover:shadow-2xl transition-all duration-300"
-              >
-                <div className={`h-28 md:h-32 bg-gradient-to-br ${student.color}`} />
-
-                <div className="relative -mt-16 md:-mt-20 flex justify-center">
-                  <Image
-                    src={student.img}
-                    alt={student.name}
-                    width={160}
-                    height={160}
-                    className="h-32 w-32 md:h-40 md:w-40 rounded-full object-cover border-4 border-white shadow-xl group-hover:scale-110 transition-all duration-300"
+          <div className="mt-10 md:mt-16 -mx-4 md:-mx-6">
+            <div className="flex gap-6 overflow-x-scroll px-4 md:px-6 pb-8 scroll-smooth">
+              {[
+                {
+                  name: "Vivek",
+                  marks: "98%",
+                  img: "/student1.jpg",
+                  badge: "Board Topper",
+                  color: "from-[#38bdf8] to-[#2563eb]",
+                },
+                {
+                  name: "Aditya",
+                  marks: "99%",
+                  img: "/student2.jpg",
+                  badge: "Maths Star",
+                  color: "from-[#facc15] to-[#f59e0b]",
+                },
+                {
+                  name: "Sahiba",
+                  marks: "97%",
+                  img: "/student3.jpg",
+                  badge: "Top Performer",
+                  color: "from-[#60a5fa] to-[#2563eb]",
+                },
+                {
+                  name: "Abhishek",
+                  marks: "96%",
+                  img: "/student4.jpg",
+                  badge: "Science Genius",
+                  color: "from-[#22c55e] to-[#16a34a]",
+                },
+                {
+                  name: "Tanish",
+                  marks: "95%",
+                  img: "/student5.jpg",
+                  badge: "CBSE Achiever",
+                  color: "from-[#ec4899] to-[#db2777]",
+                },
+                {
+                  name: "Shyna",
+                  marks: "94%",
+                  img: "/student6.jpg",
+                  badge: "Top Scorer",
+                  color: "from-[#a855f7] to-[#7e22ce]",
+                },
+              ].map((student, i) => (
+                <div
+                  key={i}
+                  className="group relative overflow-hidden bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 min-w-[280px] md:min-w-[320px] max-w-[320px] flex-shrink-0 snap-center border border-blue-100"
+                >
+                  <div
+                    className={`h-24 md:h-28 bg-gradient-to-br ${student.color}`}
                   />
-                </div>
 
-                <div className="p-6 md:p-8 text-center">
-                  <span className="inline-block bg-[#0f172a] text-white px-4 py-1 rounded-full text-xs md:text-sm font-bold">
-                    {student.badge}
-                  </span>
-
-                  <h3 className="text-2xl md:text-3xl font-extrabold mt-5 text-[#0f172a]">
-                    {student.name}
-                  </h3>
-
-                  <p className="text-[#2563eb] font-extrabold text-lg md:text-xl mt-3">
-                    Scored {student.marks} in Maths
-                  </p>
-
-                  <div className="flex justify-center mt-5 text-[#facc15]">
-                    <Star fill="currentColor" />
-                    <Star fill="currentColor" />
-                    <Star fill="currentColor" />
-                    <Star fill="currentColor" />
-                    <Star fill="currentColor" />
+                  <div className="relative -mt-14 md:-mt-16 flex justify-center">
+                    <Image
+                      src={student.img}
+                      alt={student.name}
+                      width={160}
+                      height={160}
+                      className="h-28 w-28 md:h-32 md:w-32 rounded-full object-cover border-4 border-white shadow-xl group-hover:scale-110 transition-all duration-300"
+                    />
                   </div>
 
-                  <div className="mt-6 h-1 w-20 mx-auto rounded-full bg-[#38bdf8] group-hover:w-36 transition-all duration-300" />
+                  <div className="p-6 text-center">
+                    <span className="inline-block bg-[#0f172a] text-white px-4 py-1 rounded-full text-xs md:text-sm font-bold">
+                      {student.badge}
+                    </span>
+
+                    <h3 className="text-2xl font-extrabold mt-5 text-[#0f172a]">
+                      {student.name}
+                    </h3>
+
+                    <p className="text-[#2563eb] font-extrabold text-lg mt-3">
+                      Scored {student.marks} in Maths
+                    </p>
+
+                    <div className="flex justify-center mt-5 text-[#facc15]">
+                      <Star fill="currentColor" />
+                      <Star fill="currentColor" />
+                      <Star fill="currentColor" />
+                      <Star fill="currentColor" />
+                      <Star fill="currentColor" />
+                    </div>
+
+                    <div className="mt-6 h-1 w-20 mx-auto rounded-full bg-[#38bdf8] group-hover:w-36 transition-all duration-300" />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -364,6 +440,10 @@ export default function Home() {
       {/* VIDEO TESTIMONIALS */}
       <section className="py-14 md:py-24 px-4 md:px-6 bg-[#0f172a] text-white">
         <div className="max-w-7xl mx-auto">
+          <p className="text-center text-[#facc15] font-extrabold mb-3">
+            Student Voices
+          </p>
+
           <h2 className="text-3xl md:text-5xl font-extrabold text-center">
             Student Video Testimonials
           </h2>
@@ -409,7 +489,9 @@ export default function Home() {
                 </video>
 
                 <div className="p-5 md:p-6">
-                  <h3 className="text-xl md:text-2xl font-bold">{video.name}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold">
+                    {video.name}
+                  </h3>
 
                   <p className="text-[#facc15] mt-2 text-sm md:text-base">
                     {video.text}
@@ -421,9 +503,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PARENTS TESTIMONIALS */}
+      {/* PARENTS */}
       <section className="py-14 md:py-24 px-4 md:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
+          <p className="text-center text-[#2563eb] font-extrabold mb-3">
+            Trusted By Parents
+          </p>
+
           <h2 className="text-3xl md:text-5xl font-extrabold text-center text-[#0f172a]">
             What Parents Say
           </h2>
@@ -440,8 +526,7 @@ export default function Home() {
                 name: "Parent of Class 10 Student",
               },
               {
-                review:
-                  "Very supportive teachers and amazing doubt solving.",
+                review: "Very supportive teachers and amazing doubt solving.",
                 name: "JEE Aspirant",
               },
             ].map((item, i) => (
@@ -510,6 +595,10 @@ export default function Home() {
       {/* CONTACT */}
       <section className="py-14 md:py-24 px-4 md:px-6 bg-gradient-to-br from-[#eff6ff] via-white to-[#dbeafe]">
         <div className="max-w-6xl mx-auto text-center">
+          <p className="text-center text-[#2563eb] font-extrabold mb-3">
+            Get In Touch
+          </p>
+
           <h2 className="text-3xl md:text-5xl font-extrabold text-[#0f172a]">
             Contact Us
           </h2>

@@ -375,7 +375,7 @@ export default function Home() {
                   color: "from-[#22c55e] to-[#16a34a]",
                 },
                 {
-                  name: "Tanish",
+                  name: "Pooja",
                   marks: "95%",
                   img: "/students/student5.jpg",
                   badge: "CBSE Achiever",
